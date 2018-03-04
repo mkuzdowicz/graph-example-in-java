@@ -35,8 +35,6 @@ public class DirectedUnweightedGraph {
         return PathFindingUtils.findShortestPath(this, src, dest);
     }
 
-    ////////////////////////////////////////////////////////////////////////////
-
     public List<String> findShortestPathImpl2(String src, String dest) {
         return PathFindingUtils.findShortestPathImpl2(this, src, dest);
     }
