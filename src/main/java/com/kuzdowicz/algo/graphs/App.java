@@ -1,17 +1,22 @@
 package com.kuzdowicz.algo.graphs;
 
-import com.kuzdowicz.algo.graphs.directed.Graph;
+import com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraph;
 
 public class App {
 
     public static void main(String[] args) {
 
         String graphStrRepr = "a-b,a-c,c-e,b-d,e-b,e-d";
-        Graph graph = new Graph(graphStrRepr);
+        DirectedUnweightedGraph graph = new DirectedUnweightedGraph(graphStrRepr);
 
         println("Creating graph from string => " + graphStrRepr + " : \n");
         println(graph.getGraph());
 
+        println("shortest path from a to d is: \n");
+        println(graph.findShortestPath("a", "d"));
+
+        println("shortest path from c to a is: \n");
+        println(graph.findShortestPath("c", "a"));
     }
 
     private static void println(Object o) {
