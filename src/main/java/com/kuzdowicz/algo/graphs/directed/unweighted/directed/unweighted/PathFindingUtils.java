@@ -2,9 +2,9 @@ package com.kuzdowicz.algo.graphs.directed.unweighted.directed.unweighted;
 
 import java.util.*;
 
-public class PathFindingUtils {
+class PathFindingUtils {
 
-    public static List<String> findShortestPath(DirectedUnweightedGraph graph, String src, String dest) {
+    static List<String> findShortestPath(DirectedUnweightedGraph graph, String src, String dest) {
 
         Set<String> visited = new HashSet<>();
         Map<String, String> prevToCurrent = new HashMap<>();
@@ -51,7 +51,7 @@ public class PathFindingUtils {
 
     ////////////////////////////////////////////////////////////////////////////
 
-    public static List<String> findShortestPathImpl2(DirectedUnweightedGraph graph, String src, String dest) {
+    static List<String> findShortestPathImpl2(DirectedUnweightedGraph graph, String src, String dest) {
 
         Set<String> visited = new HashSet<>();
         Queue<List<String>> queue = new LinkedList<>();
@@ -77,6 +77,5 @@ public class PathFindingUtils {
 
         return new ArrayList<>();
     }
-
 
 }
