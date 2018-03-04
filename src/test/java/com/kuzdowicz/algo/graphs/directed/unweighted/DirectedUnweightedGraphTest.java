@@ -15,12 +15,22 @@ public class DirectedUnweightedGraphTest {
 
     @Test
     public void find_shortest_path_from_a_to_d() {
-        assertEquals(graph.findShortestPath("a", "d"), Arrays.asList("a", "b", "d"));
+        assertEquals(Arrays.asList("a", "b", "d"), graph.findShortestPath("a", "d"));
     }
 
     @Test
     public void return_empty_list_if_there_is_no_path() {
-        assertEquals(graph.findShortestPath("b", "a").size(), 0);
+        assertEquals(0, graph.findShortestPath("b", "a").size());
+    }
+
+    @Test
+    public void find_shortest_path_from_a_to_d_for_impl_2() {
+        assertEquals(Arrays.asList("a", "b", "d"), graph.findShortestPathImpl2("a", "d"));
+    }
+
+    @Test
+    public void return_empty_list_if_there_is_no_path_for_impl_2() {
+        assertEquals(0, graph.findShortestPathImpl2("b", "a").size());
     }
 
 }

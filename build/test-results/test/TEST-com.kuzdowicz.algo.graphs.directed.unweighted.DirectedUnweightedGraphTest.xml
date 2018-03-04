@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraphTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-03-04T20:21:49" hostname="ELSLABM-156321.science.regn.net" time="0.003">
+  <properties/>
+  <testcase name="find_shortest_path_from_a_to_d" classname="com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraphTest" time="0.001"/>
+  <testcase name="find_shortest_path_from_a_to_d_for_impl_2" classname="com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraphTest" time="0.0"/>
+  <testcase name="return_empty_list_if_there_is_no_path_for_impl_2" classname="com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraphTest" time="0.0"/>
+  <testcase name="return_empty_list_if_there_is_no_path" classname="com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraphTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

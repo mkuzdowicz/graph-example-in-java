@@ -75,4 +75,33 @@ public class DirectedUnweightedGraph {
 
         return path;
     }
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    public List<String> findShortestPathImpl2(String src, String dest) {
+
+        Set<String> visited = new HashSet<>();
+        Queue<List<String>> queue = new LinkedList<>();
+        queue.add(Arrays.asList(src));
+
+        while (!queue.isEmpty()) {
+            List<String> currentPath = queue.remove();
+            String current = currentPath.get(currentPath.size() - 1);
+            visited.add(current);
+
+            if (current.equals(dest)) return currentPath;
+
+            for (String adjacent : adjacencySetsMap.get(current)) {
+                if (!visited.contains(adjacent)) {
+                    List<String> pathCopy = new ArrayList<>();
+                    pathCopy.addAll(currentPath);
+                    pathCopy.add(adjacent);
+                    queue.add(pathCopy);
+                    visited.add(adjacent);
+                }
+            }
+        }
+
+        return new ArrayList<>();
+    }
 }
