@@ -7,7 +7,7 @@ public class DirectedUnweightedGraph {
     private final Map<String, Set<String>> adjacencySetsMap = new HashMap<>();
     private final Set<String> allVertices = new HashSet<>();
 
-    public Set<String> getAllVertices() {
+    Set<String> getAllVertices() {
         return new HashSet<>(allVertices);
     }
 
