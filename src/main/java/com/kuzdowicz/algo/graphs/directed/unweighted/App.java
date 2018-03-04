@@ -17,6 +17,12 @@ public class App {
 
         println("shortest path from c to a is: \n");
         println(graph.findShortestPath("c", "a"));
+
+        println("shortest reaches from a is: \n");
+        println(graph.shortestReachesFrom("a"));
+
+        println("shortest reaches from d is: \n");
+        println(graph.shortestReachesFrom("d"));
     }
 
     private static void println(Object o) {
