@@ -50,4 +50,8 @@ public class DirectedUnweightedGraph {
         return ShortestAndLongestReachUtils.shortestReachesFrom(this, src);
     }
 
+    public List<String> getVerticesInTopologicalOrder() {
+        return TopologicalOrdering.getVerticesInTopologicalOrderFrom(this);
+    }
+
 }
