@@ -1,6 +1,6 @@
 package com.kuzdowicz.algo.graphs;
 
-import com.kuzdowicz.algo.graphs.directedgraph.Graph;
+import com.kuzdowicz.algo.graphs.directed.Graph;
 
 public class App {
 
