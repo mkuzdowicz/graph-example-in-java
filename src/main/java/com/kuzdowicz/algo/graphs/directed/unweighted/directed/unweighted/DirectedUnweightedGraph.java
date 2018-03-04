@@ -1,4 +1,4 @@
-package com.kuzdowicz.algo.graphs.directed.unweighted;
+package com.kuzdowicz.algo.graphs.directed.unweighted.directed.unweighted;
 
 import java.util.*;
 

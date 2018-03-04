@@ -1,6 +1,6 @@
-package com.kuzdowicz.algo.graphs;
+package com.kuzdowicz.algo.graphs.directed.unweighted;
 
-import com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraph;
+import com.kuzdowicz.algo.graphs.directed.unweighted.directed.unweighted.DirectedUnweightedGraph;
 
 public class App {
 
