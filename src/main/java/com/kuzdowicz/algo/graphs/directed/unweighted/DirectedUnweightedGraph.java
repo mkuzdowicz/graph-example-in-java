@@ -43,23 +43,7 @@ public class DirectedUnweightedGraph {
         while (!queue.isEmpty()) {
             String current = queue.remove();
 
-            if (current.equals(dest)) {
-
-                List<String> path = new ArrayList<>();
-                Stack<String> stack = new Stack<>();
-                stack.push(dest);
-
-                while (!stack.isEmpty()) {
-                    String lastFromPath = stack.pop();
-                    String currentCameFrom = prevToCurrent.get(lastFromPath);
-                    if (currentCameFrom != null) stack.push(currentCameFrom);
-                    path.add(lastFromPath);
-                }
-
-                Collections.reverse(path);
-
-                return path;
-            }
+            if (current.equals(dest)) return buildPathFrom(dest, prevToCurrent);
 
             visited.add(current);
 
@@ -73,5 +57,22 @@ public class DirectedUnweightedGraph {
         }
 
         return new ArrayList<>();
+    }
+
+    private List<String> buildPathFrom(String dest, Map<String, String> prevToCurrent) {
+        List<String> path = new ArrayList<>();
+        Stack<String> stack = new Stack<>();
+        stack.push(dest);
+
+        while (!stack.isEmpty()) {
+            String lastFromPath = stack.pop();
+            String currentCameFrom = prevToCurrent.get(lastFromPath);
+            if (currentCameFrom != null) stack.push(currentCameFrom);
+            path.add(lastFromPath);
+        }
+
+        Collections.reverse(path);
+
+        return path;
     }
 }
