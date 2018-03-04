@@ -10,7 +10,7 @@ public class App {
         DirectedUnweightedGraph graph = new DirectedUnweightedGraph(graphStrRepr);
 
         println("Creating graph from string => " + graphStrRepr + " : \n");
-        println(graph.getGraph());
+        println(graph.getAdjacencySetsMap());
 
         println("shortest path from a to d is: \n");
         println(graph.findShortestPath("a", "d"));

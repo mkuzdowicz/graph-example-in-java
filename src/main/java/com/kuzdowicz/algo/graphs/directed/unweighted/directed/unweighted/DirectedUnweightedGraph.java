@@ -27,81 +27,17 @@ public class DirectedUnweightedGraph {
 
     }
 
-    public Map<String, Set<String>> getGraph() {
+    public Map<String, Set<String>> getAdjacencySetsMap() {
         return new HashMap<>(adjacencySetsMap);
     }
 
     public List<String> findShortestPath(String src, String dest) {
-
-        Set<String> visited = new HashSet<>();
-        Map<String, String> prevToCurrent = new HashMap<>();
-        prevToCurrent.put(src, null);
-
-        Queue<String> queue = new LinkedList<>();
-        queue.add(src);
-
-        while (!queue.isEmpty()) {
-            String current = queue.remove();
-
-            if (current.equals(dest)) return buildPathFrom(dest, prevToCurrent);
-
-            visited.add(current);
-
-            for (String adjacent : adjacencySetsMap.get(current)) {
-                if (!visited.contains(adjacent)) {
-                    queue.add(adjacent);
-                    visited.add(adjacent);
-                    prevToCurrent.put(adjacent, current);
-                }
-            }
-        }
-
-        return new ArrayList<>();
-    }
-
-    private List<String> buildPathFrom(String dest, Map<String, String> prevToCurrent) {
-        List<String> path = new ArrayList<>();
-        Stack<String> stack = new Stack<>();
-        stack.push(dest);
-
-        while (!stack.isEmpty()) {
-            String lastFromPath = stack.pop();
-            String currentCameFrom = prevToCurrent.get(lastFromPath);
-            if (currentCameFrom != null) stack.push(currentCameFrom);
-            path.add(lastFromPath);
-        }
-
-        Collections.reverse(path);
-
-        return path;
+        return PathFindingUtils.findShortestPath(this, src, dest);
     }
 
     ////////////////////////////////////////////////////////////////////////////
 
     public List<String> findShortestPathImpl2(String src, String dest) {
-
-        Set<String> visited = new HashSet<>();
-        Queue<List<String>> queue = new LinkedList<>();
-        queue.add(Arrays.asList(src));
-
-        while (!queue.isEmpty()) {
-            List<String> currentPath = queue.remove();
-            String current = currentPath.get(currentPath.size() - 1);
-            visited.add(current);
-
-            if (current.equals(dest)) return currentPath;
-
-            for (String adjacent : adjacencySetsMap.get(current)) {
-                if (!visited.contains(adjacent)) {
-                    List<String> pathCopy = new ArrayList<>();
-                    pathCopy.addAll(currentPath);
-                    pathCopy.add(adjacent);
-                    queue.add(pathCopy);
-                    visited.add(adjacent);
-                }
-            }
-        }
-
-        return new ArrayList<>();
+        return PathFindingUtils.findShortestPathImpl2(this, src, dest);
     }
 }
