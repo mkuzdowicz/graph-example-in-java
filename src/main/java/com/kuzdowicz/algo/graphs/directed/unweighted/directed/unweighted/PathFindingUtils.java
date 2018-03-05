@@ -7,8 +7,8 @@ class PathFindingUtils {
     static List<String> findShortestPath(DirectedUnweightedGraph graph, String src, String dest) {
 
         Set<String> visited = new HashSet<>();
-        Map<String, String> prevToCurrent = new HashMap<>();
-        prevToCurrent.put(src, null);
+        Map<String, String> nodeToPredecessor = new HashMap<>();
+        nodeToPredecessor.put(src, null);
 
         Queue<String> queue = new LinkedList<>();
         queue.add(src);
@@ -16,7 +16,7 @@ class PathFindingUtils {
         while (!queue.isEmpty()) {
             String current = queue.remove();
 
-            if (current.equals(dest)) return buildPathFrom(dest, prevToCurrent);
+            if (current.equals(dest)) return buildPathFrom(dest, nodeToPredecessor);
 
             visited.add(current);
 
@@ -24,7 +24,7 @@ class PathFindingUtils {
                 if (!visited.contains(adjacent)) {
                     queue.add(adjacent);
                     visited.add(adjacent);
-                    prevToCurrent.put(adjacent, current);
+                    nodeToPredecessor.put(adjacent, current);
                 }
             }
         }
