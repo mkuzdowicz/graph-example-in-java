@@ -3,43 +3,43 @@ package com.kuzdowicz.algo.graphs.directed.weighted;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex {
+class Vertex implements Comparable<Vertex> {
 
     private String data;
     private Vertex predecessor;
     private Integer distance = Integer.MAX_VALUE;
     private List<Edge> adjacent;
 
-    public Vertex(String data) {
+    Vertex(String data) {
         this.data = data;
         this.adjacent = new ArrayList<>();
     }
 
-    public String getData() {
+    String getData() {
         return data;
     }
 
-    public Vertex getPredecessor() {
+    Vertex getPredecessor() {
         return predecessor;
     }
 
-    public List<Edge> getAdjacent() {
+    List<Edge> getAdjacent() {
         return new ArrayList<>(adjacent);
     }
 
-    public void addAdjacentEdge(Vertex dest, int weight) {
+    void addAdjacentEdge(Vertex dest, int weight) {
         adjacent.add(new Edge(dest, weight));
     }
 
-    public Integer getDistance() {
+    Integer getDistance() {
         return distance;
     }
 
-    public void setPredecessor(Vertex predecessor) {
+    void setPredecessor(Vertex predecessor) {
         this.predecessor = predecessor;
     }
 
-    public void setDistance(Integer distance) {
+    void setDistance(Integer distance) {
         this.distance = distance;
     }
 
@@ -61,5 +61,10 @@ public class Vertex {
     @Override
     public int hashCode() {
         return data.hashCode();
+    }
+
+    @Override
+    public int compareTo(Vertex v) {
+        return getDistance().compareTo(v.getDistance());
     }
 }

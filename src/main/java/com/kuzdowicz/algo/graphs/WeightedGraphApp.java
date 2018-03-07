@@ -8,6 +8,8 @@ public class WeightedGraphApp {
 
         DirectedWightedGraph g = new DirectedWightedGraph("a-1-b,b-1-c,a-1-c");
         println(g);
+
+        g.findShortestPath("a", "c");
     }
 
     private static void println(Object o) {

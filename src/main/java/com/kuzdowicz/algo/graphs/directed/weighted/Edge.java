@@ -5,7 +5,7 @@ public class Edge {
     private Vertex targetVertex;
     private Integer weight;
 
-    public Edge(Vertex targetVertex, Integer weight) {
+    Edge(Vertex targetVertex, Integer weight) {
         this.targetVertex = targetVertex;
         this.weight = weight;
     }

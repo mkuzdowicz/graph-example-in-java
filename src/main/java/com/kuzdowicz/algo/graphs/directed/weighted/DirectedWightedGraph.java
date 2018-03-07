@@ -34,13 +34,58 @@ public class DirectedWightedGraph {
 
     }
 
-    public void addEdge(Vertex src, Vertex dest, int weight) {
+    private void addEdge(Vertex src, Vertex dest, int weight) {
         src.addAdjacentEdge(dest, weight);
     }
 
     @Override
     public String toString() {
         return vertices.values().toString();
+    }
+
+    private Map<Vertex, Integer> generateDistanceTableFor(String src) {
+
+        Vertex srcVertex = vertices.get(src);
+        srcVertex.setDistance(0);
+
+        PriorityQueue<Vertex> pQueue = new PriorityQueue<>();
+        pQueue.add(srcVertex);
+
+        Map<Vertex, Integer> distanceTable = new HashMap<>();
+        distanceTable.put(srcVertex, 0);
+
+        while (!pQueue.isEmpty()) {
+            Vertex current = pQueue.poll();
+
+            for (Edge adjacent : current.getAdjacent()) {
+
+                Vertex adjacentV = adjacent.getTargetVertex();
+                int oldDist = adjacentV.getDistance();
+                int newDist = current.getDistance() + adjacent.getWeight();
+                if (newDist < oldDist) {
+                    pQueue.remove(adjacent);
+                    adjacentV.setDistance(newDist);
+                    adjacentV.setPredecessor(current);
+                    pQueue.add(adjacentV);
+                    distanceTable.put(adjacentV, newDist);
+                }
+            }
+        }
+
+        return distanceTable;
+
+    }
+
+    public void findShortestPath(String src, String dest) {
+
+        Map<Vertex, Integer> distances = generateDistanceTableFor(src);
+
+        printDistances(distances);
+
+    }
+
+    private void printDistances(Map<Vertex, Integer> distances) {
+        distances.entrySet().forEach(e -> System.out.print(e.getKey().getData() + "=>" + e.getValue() + ", "));
     }
 
 }
