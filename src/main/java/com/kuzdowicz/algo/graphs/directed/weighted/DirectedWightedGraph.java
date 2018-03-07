@@ -30,8 +30,6 @@ public class DirectedWightedGraph {
 
             addEdge(v1, v2, weight);
         });
-
-
     }
 
     private void addEdge(Vertex src, Vertex dest, int weight) {
@@ -76,11 +74,21 @@ public class DirectedWightedGraph {
 
     }
 
-    public void findShortestPath(String src, String dest) {
+    public List<String> findShortestPath(String src, String dest) {
 
-        Map<Vertex, Integer> distances = generateDistanceTableFor(src);
+        generateDistanceTableFor(src);
 
-        printDistances(distances);
+        Vertex v = vertices.get(dest);
+        List<String> path = new ArrayList<>();
+
+        while (v != null) {
+            path.add(v.getData());
+            v = v.getPredecessor();
+        }
+
+        Collections.sort(path);
+
+        return path;
 
     }
 
