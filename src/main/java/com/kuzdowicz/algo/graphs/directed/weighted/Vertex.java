@@ -7,7 +7,7 @@ class Vertex implements Comparable<Vertex> {
 
     private String data;
     private Vertex predecessor;
-    private Integer distance = Integer.MAX_VALUE;
+    private Integer minDistance = Integer.MAX_VALUE;
     private List<Edge> adjacent;
 
     Vertex(String data) {
@@ -31,16 +31,16 @@ class Vertex implements Comparable<Vertex> {
         adjacent.add(new Edge(dest, weight));
     }
 
-    Integer getDistance() {
-        return distance;
+    Integer getMinDistance() {
+        return minDistance;
     }
 
     void setPredecessor(Vertex predecessor) {
         this.predecessor = predecessor;
     }
 
-    void setDistance(Integer distance) {
-        this.distance = distance;
+    void setMinDistance(Integer minDistance) {
+        this.minDistance = minDistance;
     }
 
     @Override
@@ -65,6 +65,6 @@ class Vertex implements Comparable<Vertex> {
 
     @Override
     public int compareTo(Vertex v) {
-        return getDistance().compareTo(v.getDistance());
+        return getMinDistance().compareTo(v.getMinDistance());
     }
 }

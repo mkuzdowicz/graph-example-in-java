@@ -44,7 +44,7 @@ public class DirectedWeightedGraph {
     private Map<Vertex, Integer> generateDistanceTableFor(String src) {
         // Dijkstra Algorithm
         Vertex srcVertex = vertices.get(src);
-        srcVertex.setDistance(0);
+        srcVertex.setMinDistance(0);
 
         PriorityQueue<Vertex> pQueue = new PriorityQueue<>();
         pQueue.add(srcVertex);
@@ -58,11 +58,11 @@ public class DirectedWeightedGraph {
             for (Edge adjacent : current.getAdjacent()) {
 
                 Vertex adjacentV = adjacent.getTargetVertex();
-                int oldDist = adjacentV.getDistance();
-                int newDist = current.getDistance() + adjacent.getWeight();
+                int oldDist = adjacentV.getMinDistance();
+                int newDist = current.getMinDistance() + adjacent.getWeight();
                 if (newDist < oldDist) {
                     pQueue.remove(adjacent);
-                    adjacentV.setDistance(newDist);
+                    adjacentV.setMinDistance(newDist);
                     adjacentV.setPredecessor(current);
                     pQueue.add(adjacentV);
                     distanceTable.put(adjacentV, newDist);
