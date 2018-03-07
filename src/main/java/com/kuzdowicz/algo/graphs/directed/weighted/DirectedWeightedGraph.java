@@ -2,11 +2,11 @@ package com.kuzdowicz.algo.graphs.directed.weighted;
 
 import java.util.*;
 
-public class DirectedWightedGraph {
+public class DirectedWeightedGraph {
 
     private Map<String, Vertex> vertices = new HashMap<>();
 
-    public DirectedWightedGraph(String representation) {
+    public DirectedWeightedGraph(String representation) {
 
         Arrays.asList(representation.split(",")).forEach(token -> {
             List<String> srcWeightDestGroup = Arrays.asList(token.split("-"));
@@ -42,7 +42,7 @@ public class DirectedWightedGraph {
     }
 
     private Map<Vertex, Integer> generateDistanceTableFor(String src) {
-
+        // Dijkstra Algorithm
         Vertex srcVertex = vertices.get(src);
         srcVertex.setDistance(0);
 
