@@ -1,6 +1,5 @@
 package com.kuzdowicz.algo.graphs.directed.unweighted;
 
-import com.kuzdowicz.algo.graphs.directed.unweighted.directed.unweighted.DirectedUnweightedGraph;
 import org.junit.Test;
 
 import java.util.ArrayList;

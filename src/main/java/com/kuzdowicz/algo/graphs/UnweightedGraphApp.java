@@ -1,8 +1,8 @@
-package com.kuzdowicz.algo.graphs.directed.unweighted;
+package com.kuzdowicz.algo.graphs;
 
-import com.kuzdowicz.algo.graphs.directed.unweighted.directed.unweighted.DirectedUnweightedGraph;
+import com.kuzdowicz.algo.graphs.directed.unweighted.DirectedUnweightedGraph;
 
-public class App {
+public class UnweightedGraphApp {
 
     public static void main(String[] args) {
 
